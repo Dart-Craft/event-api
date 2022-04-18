@@ -5,7 +5,7 @@ import 'package:event_api/event_callback.dart';
 class EventEmitter {
   Map<String, List<EventCallback>> callbacks = HashMap();
 
-  void emit(String eventName, List<dynamic>? args) {
+  void emit(String eventName, [List<dynamic>? args]) {
     if (callbacks.containsKey(eventName)) {
       for (EventCallback callback in callbacks[eventName]!) {
         Function.apply(callback.callback, args);
